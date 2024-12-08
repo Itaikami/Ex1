@@ -21,10 +21,45 @@ public class Ex1 {
         public static int number2Int(String num) {
             int ans = -1;
             // add your code here
-            if(isNumber(num))
-            {
 
-            }
+            if(!isNumber(num))
+            {return ans;}
+            ans=0;
+              if(!(num.indexOf('b')>=0))
+              {
+                ans=Integer.parseInt(num);
+              }
+              else
+              {
+                  String n=num.split("b")[0];
+                  char base=num.split("b")[1].charAt(0);
+                  int size = n.length()-1;
+                  for (int i = 0; i <= size; i++) {
+                      char cur = n.charAt(i);
+                      //צריך לתקן את G
+                      if(base>='A'&&base<='G')
+                      {
+                          if(cur>='A'&&cur<='F')
+                              ans+= (int) ((10+(cur-'A'))*(Math.pow((10+base-'A'),size-i)));
+                          else
+                          {
+                              ans+= (int)((cur-'0')*(Math.pow((10+base-'A'),size-i)));
+                          }
+                      }
+                      else
+                      {
+                          if(cur>='A'&&cur<='F')
+                          {
+                              ans+= (int) ((10+(cur-'A'))*(Math.pow((base-'0'),size-i)));
+                          }
+                          else
+                          {
+                              ans+= (int)((cur-'0')*(Math.pow((base-'0'),size-i)));
+                          }
+                      }
+                  }
+              }
+
             ////////////////////
             return ans;
         }
@@ -63,7 +98,7 @@ public class Ex1 {
                 }
                 // if they are not both digits then they are both letters(we checked the validity of basis earlier)
                 // we compare them again
-                else if (cur>='A'&&cur<='G')
+                else if (cur>='A'&&cur<'G')
                 {
                     if(cur>=basis)
                     {
