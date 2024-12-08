@@ -21,7 +21,10 @@ public class Ex1 {
         public static int number2Int(String num) {
             int ans = -1;
             // add your code here
+            if(isNumber(num))
+            {
 
+            }
             ////////////////////
             return ans;
         }
@@ -33,6 +36,51 @@ public class Ex1 {
         public static boolean isNumber(String a) {
             boolean ans = true;
             // add your code here
+            // num represents the number itself and 'base' the base the number is in ,if we dont have a base in our input
+            // num is the whole string
+            String num = a,base = "";
+            char basis = 0;
+
+            if(a.indexOf('b')>0&&a.lastIndexOf('b')==a.indexOf('b')) {
+                num=a.split("b")[0];
+                base=a.split("b")[1];
+            //we set our 'basis' to be the first character of the base because its supposed to be 1 char long
+                basis=base.charAt(0);
+            }
+            //checks the validity of the base
+            if(base.length()>1||(!(basis>='2'&&basis<='9')&&!(basis>='A'&&basis<='G')&&basis!=0))
+                ans = false;
+            for (int i = 0; i < num.length()&&ans;i++) {
+                char cur=num.charAt(i);
+                //checks if both the current digit of the number and the base are digits and if the "cur" is bigger than
+                // the base then its invalid
+                if(cur>='0'&&cur<='9')
+                {
+                    if(basis>='2'&&basis<='9'&&cur>=basis) {
+                        ans = false;
+                    }
+
+                }
+                // if they are not both digits then they are both letters(we checked the validity of basis earlier)
+                // we compare them again
+                else if (cur>='A'&&cur<='G')
+                {
+                    if(cur>=basis)
+                    {
+                        ans=false;
+                    }
+                }
+                // if the 'cur' isn't a digit or a letter between A and G then it's not a valid string
+                else
+                {
+                    ans= false;
+                }
+
+
+
+                }
+
+
 
             ////////////////////
             return ans;
