@@ -50,6 +50,7 @@ public class Ex1Test {
         @Test
         void maxIndexTest() {
             // implement this test
+
         }
 
     @Test
