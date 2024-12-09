@@ -43,5 +43,13 @@ public class Ex1Test {
             // implement this test
         }
 
-        // Add additional test functions - test as much as you can.
+    @Test
+    void char2Int() {
+            char[] let={'A','B','C','D','E','F','G'};
+        for (int i = 0; i < let.length; i++) {
+            assertEquals(Ex1.char2Int(let[i]),10+i);
+        }
+    }
+
+    // Add additional test functions - test as much as you can.
     }
