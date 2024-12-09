@@ -172,9 +172,12 @@ public class Ex1 {
             }
             if(base>=2&&base<=9)
                 ans=ans+'b'+base;
-            else if (base>=10&&base<=15) {
-                ans=ans+'b'+('A'-10+base);
+            else if (base>=11&&base<=15) {
+                ans=ans+'b'+(char)('A'-10+base);
             }
+
+            else if (base == 16)
+                ans=ans+'b'+'G';
             ////////////////////
             return ans;
 
@@ -188,7 +191,8 @@ public class Ex1 {
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
             // add your code here
-
+            if(number2Int(n1)!=number2Int(n2))
+                ans=false;
             ////////////////////
             return ans;
         }
