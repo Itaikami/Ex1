@@ -152,12 +152,33 @@ public class Ex1 {
          */
         public static String int2Number(int num, int base) {
             String ans = "";
-            // add your code here
 
+
+
+            // add your code here
+            if(!(base>=2&&base<=16))
+            {num=-1;}
+            if (num==0)
+                ans=ans+num;
+            while (num>0) {
+                int rem = num % base;
+                if (rem < 10) {
+                    ans = rem + ans;
+                } else {
+                    //we use the ASCII value of the letters to assign a letter instead of a digit
+                    ans=(char)('A'+rem-10)+ans;
+                }
+                num/=base;
+            }
+            if(base>=2&&base<=9)
+                ans=ans+'b'+base;
+            else if (base>=10&&base<=15) {
+                ans=ans+'b'+('A'-10+base);
+            }
             ////////////////////
             return ans;
-        }
 
+        }
         /**
          * Checks if the two numbers have the same value.
          * @param n1 first number
@@ -186,5 +207,5 @@ public class Ex1 {
 
             ////////////////////
             return ans;
-        }
-}
+        }}
+

@@ -9,11 +9,12 @@ import java.util.Scanner;
 public class Ex1Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String num= "10bG";
+        String num= "1011bA";
 
         boolean ok = Ex1.isNumber(num);
         System.out.println(ok);
         System.out.println(Ex1.number2Int(num));
+         System.out.println(Ex1.int2Number(10,2));
 
 //        String num1 = "", num2="", quit = "quit";
 //        while (!num1.equals(quit) && !num2.equals(quit)) {
