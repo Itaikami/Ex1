@@ -12,6 +12,45 @@ package assignments.ex1;
  * You should implement the following static functions:
  */
 public class Ex1 {
+    /**Convert the given char into the relevant number
+     * if the char is a number return it as is
+     * if the char is invalid return -1
+     * @param dig represents a digit in the relevant number
+     * num represents the number we return in the end
+       @return
+       */
+    public static int char2Int(char dig)
+    {
+        int num=-1;
+        switch(dig)
+        {
+            case 'A':
+            {    num=10;
+            break;}
+            case 'B':
+            {   num=11;
+            break;}
+            case 'C':
+            {    num=12;
+            break;}
+            case 'D':
+            {    num=13;
+            break;}
+            case 'E':
+            {    num=14;
+            break;}
+            case 'F':
+            {   num=15;
+            break;}
+            case 'G':
+            {   num=16;
+            break;}
+
+        }
+        if(dig>='0'&&dig<='9')
+            num=Character.getNumericValue(dig);
+        return num;
+    }
         /**
          * Convert the given number (num) to a decimal representation (as int).
          * It the given number is not in a valid format returns -1.
@@ -34,29 +73,32 @@ public class Ex1 {
                   String n=num.split("b")[0];
                   char base=num.split("b")[1].charAt(0);
                   int size = n.length()-1;
+                  int basis,dig;
+                  basis=char2Int(base);
                   for (int i = 0; i <= size; i++) {
                       char cur = n.charAt(i);
-                      //צריך לתקן את G
-                      if(base>='A'&&base<='G')
-                      {
-                          if(cur>='A'&&cur<='F')
-                              ans+= (int) ((10+(cur-'A'))*(Math.pow((10+base-'A'),size-i)));
-                          else
-                          {
-                              ans+= (int)((cur-'0')*(Math.pow((10+base-'A'),size-i)));
-                          }
-                      }
-                      else
-                      {
-                          if(cur>='A'&&cur<='F')
-                          {
-                              ans+= (int) ((10+(cur-'A'))*(Math.pow((base-'0'),size-i)));
-                          }
-                          else
-                          {
-                              ans+= (int)((cur-'0')*(Math.pow((base-'0'),size-i)));
-                          }
-                      }
+                      dig=char2Int(cur);
+                      ans+=(int)(dig*Math.pow(basis,size-i));
+//                      if(base>='A'&&base<='G')
+//                      {
+//                          if(cur>='A'&&cur<='F')
+//                              ans+= (int) ((10+(cur-'A'))*(Math.pow((10+base-'A'),size-i)));
+//                          else
+//                          {
+//                              ans+= (int)((cur-'0')*(Math.pow((10+base-'A'),size-i)));
+//                          }
+//                      }
+//                      else
+//                      {
+//                          if(cur>='A'&&cur<='F')
+//                          {
+//                              ans+= (int) ((10+(cur-'A'))*(Math.pow((base-'0'),size-i)));
+//                          }
+//                          else
+//                          {
+//                              ans+= (int)((cur-'0')*(Math.pow((base-'0'),size-i)));
+//                          }
+//                      }
                   }
               }
 

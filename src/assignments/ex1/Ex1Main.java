@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Ex1Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String num= "1FbG";
+        String num= "10bG";
 
         boolean ok = Ex1.isNumber(num);
         System.out.println(ok);
