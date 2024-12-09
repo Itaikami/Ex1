@@ -16,8 +16,7 @@ public class Ex1 {
      * if the char is a number return it as is
      * if the char is invalid return -1
      * @param dig represents a digit in the relevant number
-     * num represents the number we return in the end
-       @return
+       @return num the number char dig represents
        */
     public static int char2Int(char dig)
     {
@@ -55,7 +54,7 @@ public class Ex1 {
          * Convert the given number (num) to a decimal representation (as int).
          * It the given number is not in a valid format returns -1.
          * @param num a String representing a number in basis [2,16]
-         * @return
+         * @return ans - the number in a decimal representation
          */
         public static int number2Int(String num) {
             int ans = -1;
@@ -79,26 +78,6 @@ public class Ex1 {
                       char cur = n.charAt(i);
                       dig=char2Int(cur);
                       ans+=(int)(dig*Math.pow(basis,size-i));
-//                      if(base>='A'&&base<='G')
-//                      {
-//                          if(cur>='A'&&cur<='F')
-//                              ans+= (int) ((10+(cur-'A'))*(Math.pow((10+base-'A'),size-i)));
-//                          else
-//                          {
-//                              ans+= (int)((cur-'0')*(Math.pow((10+base-'A'),size-i)));
-//                          }
-//                      }
-//                      else
-//                      {
-//                          if(cur>='A'&&cur<='F')
-//                          {
-//                              ans+= (int) ((10+(cur-'A'))*(Math.pow((base-'0'),size-i)));
-//                          }
-//                          else
-//                          {
-//                              ans+= (int)((cur-'0')*(Math.pow((base-'0'),size-i)));
-//                          }
-//                      }
                   }
               }
 
