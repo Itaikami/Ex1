@@ -50,7 +50,8 @@ public class Ex1Test {
         @Test
         void maxIndexTest() {
             // implement this test
-
+            String[] max={"12b3","10","10bG","FFbG","1101b2","gba"};
+            assertEquals(Ex1.maxIndex(max),3);
         }
 
     @Test
@@ -59,6 +60,29 @@ public class Ex1Test {
         for (int i = 0; i < let.length; i++) {
             assertEquals(Ex1.char2Int(let[i]),10+i);
         }
+    }
+
+    @Test
+    void number2Int() {
+            String[] nums={"11b2","BbA","AbB","AFbG","b3","15b7"};
+            assertEquals(Ex1.number2Int(nums[0]),3);
+            assertEquals(Ex1.number2Int(nums[1]),-1);
+            assertNotEquals(Ex1.number2Int(nums[2]),Ex1.number2Int(nums[1]));
+            assertEquals(Ex1.number2Int(nums[3]),175);
+            assertNotEquals(Ex1.number2Int(nums[4]),3);
+            assertEquals(Ex1.number2Int(nums[5]),12);
+
+    }
+
+    @Test
+    void testEquals() {
+            assertTrue(Ex1.equals("1b2","1bG"));
+            assertTrue(Ex1.equals("10b2","2"));
+            assertFalse(Ex1.equals("101b3","11b4"));
+            assertTrue(Ex1.equals("12b4","6"));
+            assertFalse(Ex1.equals("0b2","b2"));
+            assertTrue(Ex1.equals("AbG","AbD"));
+            assertFalse(Ex1.equals("1010b2","101b4"));
     }
 
     // Add additional test functions - test as much as you can.

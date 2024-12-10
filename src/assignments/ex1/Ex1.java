@@ -16,7 +16,7 @@ public class Ex1 {
      * if the char is a number return it as is
      * if the char is invalid return -1
      * @param dig represents a digit in the relevant number
-       @return num the number char dig represents
+       @return the number char dig represents
        */
     public static int char2Int(char dig)
     {
@@ -59,17 +59,21 @@ public class Ex1 {
         public static int number2Int(String num) {
             int ans = -1;
             // add your code here
-
+            //if the format is not valid we can stop and return ans=-1
             if(!isNumber(num))
             {return ans;}
             ans=0;
+            //if b doesn't exist in the String we know we have only numbers as the format is valid so we can
+            //cast our string and apply it to ans
               if(!(num.indexOf('b')>=0))
               {
                 ans=Integer.parseInt(num);
               }
               else
               {
+                  //if we have b we take the part before it and after it and split it to our number and base
                   String n=num.split("b")[0];
+                  //we know the part after b consists of only 1 char so we can apply it to our base
                   char base=num.split("b")[1].charAt(0);
                   int size = n.length()-1;
                   int basis,dig;
@@ -77,6 +81,7 @@ public class Ex1 {
                   for (int i = 0; i <= size; i++) {
                       char cur = n.charAt(i);
                       dig=char2Int(cur);
+                      //we add to ans the current digit times our base int the relevant power
                       ans+=(int)(dig*Math.pow(basis,size-i));
                   }
               }
@@ -191,6 +196,7 @@ public class Ex1 {
         public static boolean equals(String n1, String n2) {
             boolean ans = true;
             // add your code here
+            //compares the decimal value based on number2Int
             if(number2Int(n1)!=number2Int(n2))
                 ans=false;
             ////////////////////
@@ -210,6 +216,8 @@ public class Ex1 {
             // add your code here
             int max=number2Int(arr[0]);
             for (int i = 1; i < arr.length; i++) {
+                //uses number2Int to calculate the decimal value of the current string and saves it if it is bigger than
+                //the next one
                 if(max<number2Int(arr[i]))
                 {
                   ans=i;
