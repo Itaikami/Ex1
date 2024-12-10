@@ -39,6 +39,7 @@ public class Ex1Main {
                         int base= sc.nextInt();
                         System.out.println(num1+" + "+num2+" = "+Ex1.int2Number(Ex1.number2Int(num1)+Ex1.number2Int(num2),base));
                         System.out.println(num1+" * "+num2+" = "+Ex1.int2Number(Ex1.number2Int(num1)*Ex1.number2Int(num2),base));
+                        //we create a string array to keep our "numbers" to check the highest value later
                         String[] max=new String[4];
                         max[0]=num1;
                         max[1]=num2;
